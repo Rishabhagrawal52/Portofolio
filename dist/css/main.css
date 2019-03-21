@@ -6,13 +6,23 @@ html {
 
 body {
   background: #444;
-  color: #fff;
+  color: set-text-color(#444);
   height: 100%;
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.5; }
   body#bg-img {
-    background: url("../img/DwiOFFMUYAIqo-u.jpg"); }
+    background: url(../img/DwiOFFMUYAIqo-u.jpg);
+    background-attachment: fixed;
+    background-size: cover; }
+    body#bg-img .overlay {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: rgba(68, 68, 68, 0.5); }
 
 h1, h2, h3 {
   margin: 0;
@@ -30,11 +40,11 @@ a {
 
 header {
   position: fixed;
-  z-index: 2;
+  z-index: 0.5;
   width: 100%; }
 
 .text-secondary {
-  color: yellow; }
+  color: #dee940; }
 
 main {
   padding: 4rem;
@@ -44,7 +54,7 @@ main {
     main .icons a {
       padding: 0.4rem; }
       main .icons a:hover {
-        color: yellow;
+        color: #dee940;
         transition: all 0.2s ease-out; }
   main#home {
     overflow: hidden; }

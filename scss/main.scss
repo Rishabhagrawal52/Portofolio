@@ -1,17 +1,34 @@
-$primary_color: #444;
-$secondary-color:yellow;
+$primary_color:#444;
+$secondary-color:rgb(222, 233, 64);
 $show-home-image: true;
-$home-image:url("../img/DwiOFFMUYAIqo-u.jpg");
-$background-opacity:0.9;
-@mixin easeOut {
+$home-image:url(../img/DwiOFFMUYAIqo-u.jpg);
+$background-opacity:0.5;
+@mixin easeout
+{
     transition: all 0.2s ease-out;
     
 }
-@mixin background {
-    &#bg-img
-    {
-        background: $home-image;
-    }
+@mixin background
+{
+   @if $show-home-image
+   {
+       &#bg-img{
+           background: $home-image;
+           background-attachment: fixed;
+           background-size: cover;
+
+           .overlay{
+
+            position: absolute;
+            top:0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: rgba($primary_color,$background-opacity);
+           }
+       }
+   }
 }
 html
 {
@@ -25,7 +42,7 @@ body
 {
     @include background;
     background: $primary_color;
-    color: #fff;
+    color: set-text-color($primary_color);
     height: 100%;
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -43,7 +60,7 @@ h1, h2, h3{
     {
         margin-bottom:2rem;
         padding: 0.2rem 1rem;
-        background: rgba(lighten($primary-color,2),0.5);
+        background: rgba(lighten($primary_color,2),$background-opacity);
     }
 }
 a
@@ -54,7 +71,7 @@ a
 header
 {
     position:fixed;
-    z-index: 2;
+    z-index: 0.5;
     width: 100%
 }
 .text-secondary
@@ -75,7 +92,7 @@ main
             &:hover
             {
                 color:$secondary-color;
-                @include easeOut();
+                @include easeout();
             }
         }
     }
