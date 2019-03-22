@@ -3,7 +3,7 @@ $secondary-color:rgb(222, 233, 64);
 $show-home-image: true;
 $home-image:url(../img/DwiOFFMUYAIqo-u.jpg);
 $background-opacity:0.5;
-@mixin easeout
+@mixin easeOut
 {
     transition: all 0.2s ease-out;
     
@@ -92,7 +92,7 @@ main
             &:hover
             {
                 color:$secondary-color;
-                @include easeout();
+                @include easeOut();
             }
         }
     }
@@ -105,3 +105,4 @@ main
         }
     }
 }
+@import 'menu';
